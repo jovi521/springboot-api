@@ -1,0 +1,41 @@
+server:
+  port: 8072
+  shutdown: graceful
+  servlet:
+    context-path: /knife4j
+spring:
+  application:
+    name: springboot-api-xiaoymin-knife4j
+knife4j:
+  enable: true
+  documents:
+    - group: 1.2.x
+      name: 测试自定义标题分组
+      locations: classpath:md/*
+  setting:
+    enableSwaggerModels: true
+    enableDocumentManage: true
+    enableHost: false
+    enableHostText: http://localhost:999
+    enableRequestCache: true
+    enableFilterMultipartApis: false
+    enableFilterMultipartApiMethodType: POST
+    language: zh-CN
+    enableAfterScript: true
+    swaggerModelName: 实体类别图
+    enableVersion: true
+  cors: false
+  production: false
+  basic:
+    enable: false
+    username: admin
+    password: 123456
+# ===== 自定义 application 配置 ===== #
+application:
+  application-name: ${spring.application.name}
+  application-author: @user.name@
+  application-version: @project.version@
+  application-description: ${spring.application.name} 整合Demo
+  try-host: http://localhost:${server.port}
+  email: @property-email@
+  base-package: com.example

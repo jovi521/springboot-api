@@ -1,0 +1,20 @@
+server:
+  port: 8071
+  shutdown: graceful
+  servlet:
+    context-path: /springfox
+spring:
+  application:
+    name: springboot-api-springfox-swagger3
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+# ===== 自定义 application 配置 ===== #
+application:
+  application-name: ${spring.application.name}
+  application-author: jovi
+  application-version: 1.0
+  application-description: springdoc openapi整合Demo
+  try-host: http://localhost:${server.port}
+  email: 506997994@qq.com

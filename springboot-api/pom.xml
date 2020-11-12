@@ -1,0 +1,118 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>springboot-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>springboot-api Application</name>
+    <description>Demo project for Spring Boot</description>
+
+    <developers>
+        <developer>
+            <id>DEV-001</id>
+            <name>jovi</name>
+            <email>506997994@qq.com</email>
+            <roles>
+                <role>ADMIN</role>
+            </roles>
+            <organization>成都远望探测技术有限公司</organization>
+        </developer>
+    </developers>
+    <properties>
+        <java.version>1.8</java.version>
+        <encoding>UTF-8</encoding>
+
+        <spring-boot-starter-parent.version>2.3.5.RELEASE</spring-boot-starter-parent.version>
+
+        <!-- 1.4直接引用会出错，1.3启动正常 -->
+        <!--<springdoc-openapi.version>1.4.8</springdoc-openapi.version>-->
+        <springdoc-openapi.version>1.3.9</springdoc-openapi.version>
+        <springfox-swagger.version>3.0.0</springfox-swagger.version>
+        <knife4j.version>3.0.1</knife4j.version>
+
+        <hutool.version>5.4.3</hutool.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+        <property-email>506997994@qq.com</property-email>
+    </properties>
+
+    <modules>
+        <module>springboot-api-springdoc-openapi</module>
+        <module>springboot-api-springfox-swagger3</module>
+        <module>springboot-api-xiaoymin-knife4j</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot-starter-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-dependencies</artifactId>
+                <version>${knife4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-starter-parent.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <encoding>${encoding}</encoding>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
