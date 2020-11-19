@@ -43,6 +43,7 @@
     </properties>
 
     <modules>
+        <module>springboot-api-common</module>
         <module>springboot-api-springdoc-openapi</module>
         <module>springboot-api-springfox-swagger3</module>
         <module>springboot-api-xiaoymin-knife4j</module>
@@ -50,6 +51,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>springboot-api-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
